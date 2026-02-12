@@ -5,7 +5,7 @@ How to preview
 Open the `index.html` file in your browser. From PowerShell run:
 
 ```powershell
-Start-Process 'C:\Users\Mozzarella\Downloads\Website\index.html'
+Start-Process 'C:\Users\USER\Downloads\Website\index.html'
 ```
 
 Notes
@@ -24,3 +24,4 @@ If you'd like, I can:
 - Wire the UI toggle to switch to the `dark-pro` mode automatically.
 - Run a contrast check and adjust colors to meet WCAG levels.
 - Expand the dataset format to a separate JSON file for maintainability.
+
