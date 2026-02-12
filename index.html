@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Atlas - Formula Compilation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#explorer">Skip to explorer</a>
+
+    <div class="app-shell">
+        <aside class="rail" aria-label="Main navigation">
+            <div class="brand">
+                <div class="brand-mark">
+                    <img src="assets/atlas-crest.svg" alt="Digital Atlas logo">
+                </div>
+                <div>
+                    <div class="brand-title">Digital Atlas</div>
+                    <div class="brand-subtitle">ECE Formula Compilation</div>
+                </div>
+            </div>
+
+            <section class="rail-section">
+                <div class="rail-label">Main Tracks</div>
+                <div class="main-tab-list" id="mainTabs" role="tablist" aria-label="Main topics"></div>
+            </section>
+
+            <section class="rail-card" aria-label="Quick commands">
+                <h3>Quick Commands</h3>
+                <ul>
+                    <li><kbd>/</kbd> focus search</li>
+                    <li><kbd>Pin</kbd> save formula cards</li>
+                    <li><kbd>Copy</kbd> export equations</li>
+                </ul>
+            </section>
+        </aside>
+
+        <section class="workspace" id="explorer" aria-label="Formula explorer">
+            <header class="topbar">
+                <div class="search-wrap">
+                    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                        <path d="M16.5 16.5L21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                    </svg>
+                    <input id="searchInput" class="search-input" type="search" placeholder="Search formulas, variables, or keywords..." aria-label="Search formulas">
+                </div>
+
+                <div class="top-controls">
+                    <label class="toggle-chip" for="pinnedOnlyToggle">
+                        <input id="pinnedOnlyToggle" type="checkbox">
+                        <span>Pinned only</span>
+                    </label>
+
+                    <label class="sort-wrap" for="sortSelect">
+                        <span>Sort</span>
+                        <select id="sortSelect" aria-label="Sort formulas">
+                            <option value="default">Default</option>
+                            <option value="title">A-Z</option>
+                        </select>
+                    </label>
+
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+                        <span class="theme-dot" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="dashboard">
+                <div class="content-head">
+                    <div>
+                        <h1>Formula Explorer</h1>
+                        <p>Precision lookup for ELEX, EST, and GEAS formula sets.</p>
+                    </div>
+                    <div class="result-pill" id="resultsCount" aria-live="polite">0 results</div>
+                </div>
+
+                <section class="metrics" aria-label="Explorer metrics">
+                    <article class="metric-card">
+                        <p>Total formulas</p>
+                        <strong id="metricTotal">0</strong>
+                    </article>
+                    <article class="metric-card">
+                        <p>Visible now</p>
+                        <strong id="metricVisible">0</strong>
+                    </article>
+                    <article class="metric-card">
+                        <p>Pinned</p>
+                        <strong id="metricPinned">0</strong>
+                    </article>
+                    <article class="metric-card">
+                        <p>Current track</p>
+                        <strong id="metricTrack">-</strong>
+                    </article>
+                </section>
+
+                <div class="subtab-row" id="subTabs" role="tablist" aria-label="Subtopics"></div>
+                <div class="formula-grid" id="formulaGrid" aria-live="polite"></div>
+            </main>
+
+            <footer class="site-footer">
+                <div>Digital Atlas 2026. Formula compilation for fast recall.</div>
+                <div class="footer-links">
+                    <a href="#explorer">Explorer</a>
+                </div>
+            </footer>
+        </section>
+
+        <aside class="focus-panel" aria-label="Pinned formulas panel">
+            <section class="focus-card">
+                <h2>Pinned Formulas</h2>
+                <ul id="pinnedList" class="pinned-list"></ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
